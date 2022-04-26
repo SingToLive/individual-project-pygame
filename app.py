@@ -125,6 +125,9 @@ def main_screen(window_X, window_Y):
     RED = (255, 0, 0)
     BLUE = (0, 0, 255)
 
+    # 게임 이름 설정
+    pygame.display.set_caption('Robot Warfare')
+
     #난이도
     Easy = {"EnemyBulletSpeed": 100, "EnemyMotionSpeed": 300}
     Medium = {"EnemyBulletSpeed": 50, "EnemyMotionSpeed": 150}
@@ -365,6 +368,7 @@ def game_screen(window_X, window_Y, Difficulty):
         remain_time = total_time - (pygame.time.get_ticks() - start_ticks) / 1000
         time_left_txt = pygame.font.SysFont('malgungothic', 20).render(f'remain time : {remain_time}', True, RED)
         window.blit(time_left_txt, (30, 90))
+        #게임 종료 화면 출력
         if (game_over == True) or (remain_time <= 0):
             GameEndScreen(window_X, window_Y, Difficulty, player_life, enemy_life, remain_time)
 
