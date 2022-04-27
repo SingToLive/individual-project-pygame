@@ -2,7 +2,6 @@
 import sys
 import pygame
 import random
-import time
 from mainScreenButton import MainButton
 from gamePauseScreenButton import GamePauseButton
 
@@ -366,7 +365,7 @@ def game_screen(window_X, window_Y, Difficulty):
         window.blit(enemy_life_txt, (30,50))
         #남은 시간 출력
         remain_time = total_time - (pygame.time.get_ticks() - start_ticks) / 1000
-        time_left_txt = pygame.font.SysFont('malgungothic', 20).render(f'remain time : {remain_time}', True, RED)
+        time_left_txt = pygame.font.SysFont('malgungothic', 20).render(f'remain time : {int(remain_time)}', True, RED)
         window.blit(time_left_txt, (30, 90))
         #게임 종료 화면 출력
         if (game_over == True) or (remain_time <= 0):
